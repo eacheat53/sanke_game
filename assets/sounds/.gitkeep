@@ -1,0 +1,5 @@
+# 这个文件用于保持sounds目录存在
+# 可以在这里添加游戏音效文件，如：
+# - eat.wav (吃食物音效)
+# - game_over.wav (游戏结束音效)
+# - background.mp3 (背景音乐)

@@ -1,0 +1,14 @@
+{
+    "game_settings": {
+        "initial_fps": 10,
+        "initial_snake_length": 3,
+        "speed_increase_interval": 50,
+        "speed_increase_amount": 2,
+        "max_fps": 30,
+        "show_grid": true
+    },
+    "sound_settings": {
+        "enabled": true,
+        "volume": 0.5
+    }
+}
