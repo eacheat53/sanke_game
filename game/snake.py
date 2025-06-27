@@ -3,11 +3,14 @@
 """
 
 import pygame
+from typing import List, Tuple, Optional
 from .constants import *
 
 
 class Snake:
-    def __init__(self, initial_length):
+    """蛇类，处理蛇的移动、碰撞检测等"""
+    
+    def __init__(self, initial_length: int):
         """初始化蛇"""
         self.initial_length = initial_length
         self.reset()
@@ -32,6 +35,11 @@ class Snake:
     
     def update(self):
         """更新蛇的位置"""
+        # 记录旧的尾部位置（用于脏矩形更新）
+        old_tail = None
+        if not self.grow and len(self.body) > 0:
+            old_tail = self.body[-1]
+        
         # 更新方向（防止直接反向）
         if self.next_direction != (-self.direction[0], -self.direction[1]):
             self.direction = self.next_direction
@@ -45,9 +53,17 @@ class Snake:
         
         # 如果不需要增长，移除尾部
         if not self.grow:
-            self.body.pop()
+            removed_tail = self.body.pop()
+            # 标记旧尾部位置为脏区域
+            if old_tail:
+                from .render_optimizer import render_optimizer
+                render_optimizer.mark_dirty_grid(old_tail[0], old_tail[1])
         else:
             self.grow = False
+        
+        # 标记新头部位置为脏区域
+        from .render_optimizer import render_optimizer
+        render_optimizer.mark_dirty_grid(new_head[0], new_head[1])
     
     def change_direction(self, new_direction):
         """改变蛇的移动方向"""
@@ -57,20 +73,49 @@ class Snake:
         """蛇吃到食物"""
         self.grow = True
     
-    def check_collision(self):
-        """检查碰撞"""
+    def check_collision(self, allow_wall_pass=False):
+        """检查碰撞
+        
+        Args:
+            allow_wall_pass: 是否允许穿墙
+        """
         head_x, head_y = self.body[0]
         
-        # 检查是否撞墙
-        if (head_x < 0 or head_x >= GRID_WIDTH or 
-            head_y < 0 or head_y >= GRID_HEIGHT):
-            return True
+        # 检查是否撞墙（如果允许穿墙则不算碰撞）
+        if not allow_wall_pass:
+            if (head_x < 0 or head_x >= GRID_WIDTH or 
+                head_y < 0 or head_y >= GRID_HEIGHT):
+                return True
         
         # 检查是否撞到自己
         if (head_x, head_y) in self.body[1:]:
             return True
         
         return False
+    
+    def handle_wall_wrap(self):
+        """处理穿墙效果"""
+        head_x, head_y = self.body[0]
+        new_x, new_y = head_x, head_y
+        
+        # 水平穿墙
+        if head_x < 0:
+            new_x = GRID_WIDTH - 1
+        elif head_x >= GRID_WIDTH:
+            new_x = 0
+        
+        # 垂直穿墙
+        if head_y < 0:
+            new_y = GRID_HEIGHT - 1
+        elif head_y >= GRID_HEIGHT:
+            new_y = 0
+        
+        # 更新蛇头位置
+        if new_x != head_x or new_y != head_y:
+            self.body[0] = (new_x, new_y)
+            return True  # 发生了穿墙
+        
+        return False  # 没有穿墙
     
     def get_head_position(self):
         """获取蛇头位置"""

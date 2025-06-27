@@ -34,7 +34,7 @@ class EnvLoader:
         env_vars = {}
         
         try:
-            with open(self.env_file, 'r') as f:
+            with open(self.env_file, 'r', encoding='utf-8') as f:
                 for line in f:
                     line = line.strip()
                     

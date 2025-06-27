@@ -12,9 +12,14 @@ class SoundManager:
         self.sounds = {}
         self.sound_enabled = True
         
+        # 确保pygame已初始化
+        if not pygame.get_init():
+            pygame.init()
+            
         # 初始化pygame mixer
         try:
-            pygame.mixer.init()
+            if not pygame.mixer.get_init():
+                pygame.mixer.init()
         except:
             self.sound_enabled = False
             print("警告: 无法初始化音效系统")

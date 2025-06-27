@@ -31,8 +31,10 @@ class Menu:
             
             elif event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_UP:
+                    print(f"DEBUG: len() called on type: {type(self.menu_options)} in game/menu.py")
                     self.selected_option = (self.selected_option - 1) % len(self.menu_options)
                 elif event.key == pygame.K_DOWN:
+                    print(f"DEBUG: len() called on type: {type(self.menu_options)} in game/menu.py")
                     self.selected_option = (self.selected_option + 1) % len(self.menu_options)
                 elif event.key == pygame.K_RETURN or event.key == pygame.K_SPACE:
                     return self.get_selected_action()
@@ -66,7 +68,7 @@ class Menu:
                 option_text = f"  {option}  "
             
             text_surface = self.small_font.render(option_text, True, color)
-            text_rect = text_surface.get_rect(center=(WINDOW_WIDTH // 2, start_y + i * 40))
+            text_rect = text_surface.get_rect(center=(WINDOW_WIDTH // 2, start_y + i * 50))
             self.screen.blit(text_surface, text_rect)
         
         # 绘制操作提示
@@ -102,12 +104,15 @@ class SettingsMenu:
             
             elif event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_UP:
+                    print(f"DEBUG: len() called on type: {type(self.settings_options)} in game/menu.py")
                     self.selected_option = (self.selected_option - 1) % len(self.settings_options)
                 elif event.key == pygame.K_DOWN:
+                    print(f"DEBUG: len() called on type: {type(self.settings_options)} in game/menu.py")
                     self.selected_option = (self.selected_option + 1) % len(self.settings_options)
                 elif event.key == pygame.K_LEFT or event.key == pygame.K_RIGHT:
                     self.adjust_setting(event.key == pygame.K_RIGHT)
                 elif event.key == pygame.K_RETURN or event.key == pygame.K_SPACE:
+                    print(f"DEBUG: len() called on type: {type(self.settings_options)} in game/menu.py")
                     if self.selected_option == len(self.settings_options) - 1:
                         return "back"
                     else:
@@ -124,8 +129,10 @@ class SettingsMenu:
             current = self.config['game_settings']['difficulty']
             current_index = difficulties.index(current) if current in difficulties else 1
             if increase:
+                print(f"DEBUG: len() called on type: {type(difficulties)} in game/menu.py")
                 new_index = (current_index + 1) % len(difficulties)
             else:
+                print(f"DEBUG: len() called on type: {type(difficulties)} in game/menu.py")
                 new_index = (current_index - 1) % len(difficulties)
             self.config['game_settings']['difficulty'] = difficulties[new_index]
         
@@ -181,7 +188,7 @@ class SettingsMenu:
                 option_text = f"  {option_text}  "
             
             text_surface = self.small_font.render(option_text, True, color)
-            text_rect = text_surface.get_rect(center=(WINDOW_WIDTH // 2, start_y + i * 40))
+            text_rect = text_surface.get_rect(center=(WINDOW_WIDTH // 2, start_y + i * 50))
             self.screen.blit(text_surface, text_rect)
         
         # 绘制操作提示
@@ -253,6 +260,6 @@ class HelpMenu:
                 font = self.small_font
             
             text_surface = font.render(line, True, color)
-            self.screen.blit(text_surface, (50, start_y + i * 25))
+            self.screen.blit(text_surface, (50, start_y + i * 35))
         
         pygame.display.flip()

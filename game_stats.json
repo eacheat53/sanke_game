@@ -1,0 +1,10 @@
+{
+  "total_games": 23,
+  "total_score": 734,
+  "highest_score": 256,
+  "max_snake_length": 16,
+  "max_game_time": 74,
+  "special_food_eaten": 0,
+  "perfect_starts": 0,
+  "max_survival_time": 0
+}

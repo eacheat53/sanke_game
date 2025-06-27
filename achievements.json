@@ -1,0 +1,192 @@
+{
+  "achievements": [
+    {
+      "id": "first_score",
+      "name": "初次得分",
+      "description": "获得第一分",
+      "reward_points": 5,
+      "hidden": false,
+      "category": "general",
+      "unlocked": true,
+      "unlock_time": 1750950151.8187256,
+      "progress": 1.0
+    },
+    {
+      "id": "score_100",
+      "name": "百分达人",
+      "description": "单局得分达到100分",
+      "reward_points": 10,
+      "hidden": false,
+      "category": "general",
+      "unlocked": true,
+      "unlock_time": 1751011927.525934,
+      "progress": 1.0
+    },
+    {
+      "id": "score_500",
+      "name": "五百强者",
+      "description": "单局得分达到500分",
+      "reward_points": 25,
+      "hidden": false,
+      "category": "general",
+      "unlocked": false,
+      "unlock_time": null,
+      "progress": 0.0
+    },
+    {
+      "id": "score_1000",
+      "name": "千分传说",
+      "description": "单局得分达到1000分",
+      "reward_points": 50,
+      "hidden": false,
+      "category": "general",
+      "unlocked": false,
+      "unlock_time": null,
+      "progress": 0.0
+    },
+    {
+      "id": "length_10",
+      "name": "小蛇成长",
+      "description": "蛇长度达到10节",
+      "reward_points": 10,
+      "hidden": false,
+      "category": "general",
+      "unlocked": true,
+      "unlock_time": 1751011927.525934,
+      "progress": 1.0
+    },
+    {
+      "id": "length_25",
+      "name": "中蛇进化",
+      "description": "蛇长度达到25节",
+      "reward_points": 20,
+      "hidden": false,
+      "category": "general",
+      "unlocked": false,
+      "unlock_time": null,
+      "progress": 0.0
+    },
+    {
+      "id": "length_50",
+      "name": "大蛇传奇",
+      "description": "蛇长度达到50节",
+      "reward_points": 40,
+      "hidden": false,
+      "category": "general",
+      "unlocked": false,
+      "unlock_time": null,
+      "progress": 0.0
+    },
+    {
+      "id": "time_60",
+      "name": "一分钟挑战",
+      "description": "单局游戏时间达到60秒",
+      "reward_points": 15,
+      "hidden": false,
+      "category": "general",
+      "unlocked": true,
+      "unlock_time": 1751014778.9367476,
+      "progress": 1.0
+    },
+    {
+      "id": "time_300",
+      "name": "五分钟马拉松",
+      "description": "单局游戏时间达到5分钟",
+      "reward_points": 30,
+      "hidden": false,
+      "category": "general",
+      "unlocked": false,
+      "unlock_time": null,
+      "progress": 0.0
+    },
+    {
+      "id": "games_10",
+      "name": "新手玩家",
+      "description": "完成10局游戏",
+      "reward_points": 10,
+      "hidden": false,
+      "category": "general",
+      "unlocked": true,
+      "unlock_time": 1751011667.835936,
+      "progress": 1.0
+    },
+    {
+      "id": "games_50",
+      "name": "经验玩家",
+      "description": "完成50局游戏",
+      "reward_points": 25,
+      "hidden": false,
+      "category": "general",
+      "unlocked": false,
+      "unlock_time": null,
+      "progress": 0.0
+    },
+    {
+      "id": "games_100",
+      "name": "资深玩家",
+      "description": "完成100局游戏",
+      "reward_points": 50,
+      "hidden": false,
+      "category": "general",
+      "unlocked": false,
+      "unlock_time": null,
+      "progress": 0.0
+    },
+    {
+      "id": "special_food_10",
+      "name": "特殊美食家",
+      "description": "吃掉10个特殊食物",
+      "reward_points": 20,
+      "hidden": false,
+      "category": "general",
+      "unlocked": false,
+      "unlock_time": null,
+      "progress": 0.0
+    },
+    {
+      "id": "perfect_start",
+      "name": "完美开局",
+      "description": "游戏开始后30秒内不死亡",
+      "reward_points": 15,
+      "hidden": false,
+      "category": "general",
+      "unlocked": false,
+      "unlock_time": null,
+      "progress": 0.0
+    },
+    {
+      "id": "speed_demon",
+      "name": "速度恶魔",
+      "description": "在最高速度下生存30秒",
+      "reward_points": 35,
+      "hidden": false,
+      "category": "general",
+      "unlocked": false,
+      "unlock_time": null,
+      "progress": 0.0
+    },
+    {
+      "id": "konami_code",
+      "name": "秘籍大师",
+      "description": "输入经典秘籍",
+      "reward_points": 100,
+      "hidden": true,
+      "category": "general",
+      "unlocked": false,
+      "unlock_time": null,
+      "progress": 0.0
+    },
+    {
+      "id": "no_death_hour",
+      "name": "不死传说",
+      "description": "连续游戏1小时不死亡",
+      "reward_points": 200,
+      "hidden": true,
+      "category": "general",
+      "unlocked": false,
+      "unlock_time": null,
+      "progress": 0.0
+    }
+  ],
+  "save_time": 1751014778.9367476
+}
